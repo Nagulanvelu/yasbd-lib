@@ -1,6 +1,7 @@
 import regex as re
 
 from yasbd.rules.base import Rules
+from yasbd.utils.trie import build_optimized_pattern
 
 
 # fmt: off
@@ -65,7 +66,7 @@ class LtRules(Rules):
         """Override base regex compilation to handle single letter abbrvs."""
         super()._compile_regex_dynamically()
 
-        cls.MID_SENTENCE_FINDER_LST.append(
+        cls.MID_SENTENCE_FINDER_LST.extend([
             re.compile(
                 r"""
                 # A lowercase letter + dot  followed by any char + dot
@@ -75,5 +76,14 @@ class LtRules(Rules):
                 # followed by space + lowercase letter + dot
                 (?<=(?:\d|.\.)\s+[a-ząčęėįšųūž]\.)
                 """, re.X
-            )
-        )
+            ),
+            # A number followed by a Lithuanian section marker
+            re.compile(
+                rf"""
+                (?<=\d(?:\.\d+)*\s+
+                    (?:{build_optimized_pattern(cls.SECTION_MARKERS)}))
+                \.
+                """,
+                re.X,
+            ),
+        ])

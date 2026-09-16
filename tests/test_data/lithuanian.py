@@ -36,6 +36,9 @@ TEST_DATA = [
     "Priedas A. Klausimynas.| Visi respondentai užpildė anketą.",
     "Lentelė 5. Duomenų analizė.| Išvados pateikiamos toliau.",
     "Išvados.| Tyrimas parodė reikšmingus skirtumus.| Rekomenduojama tęsti stebėjimus.",
+    "1 Skyrius. Metodika aprašo duomenų rinkimo ir analizės būdą.",
+    "2.1 Skyrius. Pradiniai duomenys aprašo naudotus šaltinius.",
+    "2.1.4 Poskyris. Papildoma informacija pateikiama čia.",
 
     # Parentheses and quotes
     "Jis dėsto gamtos mokslus (anksčiau 5 metus dirbo inžinieriumi) vietiniame universitete.",
